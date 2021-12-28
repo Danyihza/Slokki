@@ -16,7 +16,7 @@ class CreatePengeluaranTable extends Migration
         Schema::create('pengeluaran', function (Blueprint $table) {
             $table->string('id_pengeluaran', 100)->primary();
             $table->string('id_owner', 100);
-            $table->foreign('id_owner')->references('id_pengeluaran')->on('owner');
+            $table->foreign('id_owner')->references('id_owner')->on('owner');
             $table->dateTime('tanggal_pengeluaran');
             $table->string('nama_pengeluaran', 100);
             $table->string('jenis_pengeluaran', 100);
