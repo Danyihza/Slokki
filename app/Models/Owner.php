@@ -17,4 +17,16 @@ class Owner extends Model
         'id_owner',
         'nama_owner'
     ];
+
+    public function transaksi()
+    {
+        return $this->hasMany(Transaksi::class, 'id_owner', 'id_owner');
+    }
+
+    public function pengeluaran()
+    {
+        return $this->hasMany(Pengeluaran::class, 'id_owner', 'id_owner');
+    }
+
+
 }

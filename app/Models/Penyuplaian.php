@@ -24,4 +24,14 @@ class Penyuplaian extends Model
         'id_supplier',
         'tanngal_penyuplaian'
     ];
+
+    public function owner()
+    {
+        return $this->belongsTo(Owner::class, 'id_owner', 'id_owner');
+    }
+
+    public function supplier()
+    {
+        return $this->belongsTo(Supplier::class, 'id_supplier', 'id_supplier');
+    }
 }

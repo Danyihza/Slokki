@@ -24,4 +24,19 @@ class Transaksi extends Model
         'id_owner',
         'tanggal_transaksi',
     ];
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class, 'id_customer', 'id_customer');
+    }
+
+    public function owner()
+    {
+        return $this->belongsTo(Owner::class, 'id_owner', 'id_owner');
+    }
+
+    public function detailTransaksi()
+    {
+        return $this->hasMany(DetailTransaksi::class, 'id_transaksi', 'id_transaksi');
+    }
 }

@@ -18,4 +18,14 @@ class DetailPenyuplaian extends Model
         'id_penyuplaian',
         'id_bahan_baku'
     ];
+
+    public function penyuplaian()
+    {
+        return $this->belongsTo(Penyuplaian::class, 'id_penyuplaian', 'id_penyuplaian');
+    }
+
+    public function bahan_baku()
+    {
+        return $this->belongsTo(BahanBaku::class, 'id_bahan_baku', 'id_bahan_baku');
+    }
 }

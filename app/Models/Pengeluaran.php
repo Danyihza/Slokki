@@ -23,4 +23,9 @@ class Pengeluaran extends Model
         'satuan',
         'jumlah_pengeluaran'
     ];
+
+    public function owner()
+    {
+        return $this->belongsTo(Owner::class, 'id_owner', 'id_owner');
+    }
 }
