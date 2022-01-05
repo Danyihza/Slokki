@@ -16,11 +16,13 @@ class AuthController extends Controller
 {
     public function loginView()
     {
-        return view('auth.login');
+        $data['state'] = 'Login';
+        return view('auth.login', $data);
     }
 
     public function registerView()
     {
+        $data['state'] = 'Register';
         $data['provinces'] = Province::orderBy('name', 'ASC')->get();
         return view('auth.register', $data);
     }
@@ -30,10 +32,10 @@ class AuthController extends Controller
         $username = $request->username;
         $password = $request->password;
 
-        $user = User::where('username', $username)->first();
+        $user = Customer::where('username', $username)->first();
 
         if ($user && Hash::check($password, $user->password)) {
-            $request->session()->put('user', $user);
+            session()->put('user', $user);
             return redirect()->route('home.homeView');
         }
 
@@ -82,5 +84,11 @@ class AuthController extends Controller
             // dd($th->getMessage());
             return redirect()->route('auth.registerView')->with('error', $th->getMessage());
         }
+    }
+
+    public function signOut()
+    {
+        session()->forget('user');
+        return redirect()->route('auth.loginView');
     }
 }

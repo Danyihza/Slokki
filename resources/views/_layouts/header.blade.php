@@ -7,15 +7,28 @@
                 </div>
                 <nav :class="isOpen ? 'hidden' : 'hidden'" class="sm:flex sm:justify-center sm:items-center mt-1">
                     <div class="flex flex-col sm:flex-row">
-                        <a class="mt-3 text-gray-200 underline hover:underline sm:mx-3 sm:mt-0" href="#">Home</a>
-                        <a class="mt-3 text-gray-400 hover:underline sm:mx-3 sm:mt-0" href="#">Catalogue</a>
+                        <a class="mt-3 {{ $state == 'Home' ? 'underline text-gray-200' : 'text-gray-400' }} hover:underline sm:mx-3 sm:mt-0" href="{{ route('home.homeView') }}">Home</a>
+                        <a class="mt-3 {{ $state == 'Catalogue' ? 'underline text-gray-200' : 'text-gray-400' }} hover:underline sm:mx-3 sm:mt-0" href="{{ route('catalogue.catalogueView') }}">Catalogue</a>
+                        @if(session('user'))
                         <a class="mt-3 text-gray-400 hover:underline sm:mx-3 sm:mt-0" href="#">Pesanan</a>
+                        @endif
                     </div>
                 </nav>
             </div>
             <div class="flex items-center justify-end w-1/2">
                 <div class="flex flex-row space-x-6">
-                    <a class="text-gray-200 hover:underline" href="#">Login</a>
+                    @if (session('user'))
+                        <a class="bg-red-500 text-white px-1 rounded" onclick="return confirm('Apakah anda yakin ingin logout?')" href="{{ route('auth.signOut') }}">
+                            Logout
+                        </a>
+                        <span class="text-gray-200 underline">
+                            Halo, {{ session('user')->username }}
+                        </span>
+                    @else
+                        <a class="{{ $state == 'Login' ? 'underline text-gray-200' : 'text-gray-400' }} hover:underline" href="{{ route('auth.loginView') }}">Login</a>
+                    @endif
+
+                    @if(session('user'))
                     <div class="flex flex-row" id="cart">
                         <button @click="cartOpen = !cartOpen"
                             class="text-gray-500 focus:outline-none mx-4 sm:mx-0 hover:underline">
@@ -42,6 +55,7 @@
                             </button>
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>

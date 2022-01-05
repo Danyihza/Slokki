@@ -8,6 +8,7 @@ class HomeController extends Controller
 {
     public function homeView()
     {
-        return view('index');
+        $data['state'] = "Home";
+        return view('index', $data);
     }
 }

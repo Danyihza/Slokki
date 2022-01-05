@@ -99,20 +99,20 @@
                     </div>
                 <div class="col-span-6 sm:col-span-3 mb-4">
                     <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                    <input type="password" name="password" id="password"
+                    <input type="password" name="password" id="password" oninput="checkRegexPassword()"
                         class="mt-1 focus:ring-brown-500 focus:border-brown-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                     </div>
-                    <p id="alert-password" class="hidden mt-1 text-xs text-red-500">
-                        Username yang anda masukkan sudah terdaftar, Silahkan masukkan username yang lain
-                    </p>
                 <div class="col-span-6 sm:col-span-3 mb-4">
                     <label for="conf_password" class="block text-sm font-medium text-gray-700">Konfirmasi
                         Password</label>
-                    <input type="password" name="conf_password" id="conf_password"
+                    <input type="password" name="conf_password" id="conf_password" oninput="checkPassword()"
                         class="mt-1 focus:ring-brown-500 focus:border-brown-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                </div>
+                    <p id="alert-password" class="hidden mt-1 text-xs text-red-500">
+                        Password tidak sama
+                    </p>
+                    </div>
                 <button type="submit"
-                    class="mt-2 w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#301C11] hover:bg-brown-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brown-500">
+                    class="mt-2 w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#301C11] hover:bg-brown-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brown-500 disabled:bg-grey-200">
                     Daftar
                 </button>
                 <p class="">Sudah punya akun ? <a class="hover:underline font-semibold"
@@ -260,6 +260,29 @@
         } else {
             // console.log('password sama');
             password_error.classList.add('hidden');
+        }
+    }
+
+    function checkRegexPassword() {
+        const inputPassword = document.querySelector('#password');
+        const password_error = document.querySelector('#alert-password');
+        const password = inputPassword.value;
+
+        const regex = /^(?=.*\d)[A-Za-z\d@$!%*?&]{6,}$/;
+        if(!regex.test(password)){
+            console.log('password tidak sesuai');
+            // password_error.classList.remove('hidden');
+            inputPassword.classList.remove('focus:border-brown-500');
+            inputPassword.classList.remove('focus:ring-brown-500');
+            inputPassword.classList.add('focus:border-red-500');
+            inputPassword.classList.add('border-red-500');
+        } else {
+            console.log('password sesuai');
+            // password_error.classList.add('hidden');
+            inputPassword.classList.add('focus:border-brown-500');
+            inputPassword.classList.add('focus:ring-brown-500');
+            inputPassword.classList.remove('focus:border-red-500');
+            inputPassword.classList.remove('border-red-500');
         }
     }
 
