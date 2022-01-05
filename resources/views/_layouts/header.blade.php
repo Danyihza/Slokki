@@ -8,8 +8,8 @@
                 <nav :class="isOpen ? 'hidden' : 'hidden'" class="sm:flex sm:justify-center sm:items-center mt-1">
                     <div class="flex flex-col sm:flex-row">
                         <a class="mt-3 text-gray-200 underline hover:underline sm:mx-3 sm:mt-0" href="#">Home</a>
-                        <a class="mt-3 text-gray-700 hover:underline sm:mx-3 sm:mt-0" href="#">Catalogue</a>
-                        <a class="mt-3 text-gray-700 hover:underline sm:mx-3 sm:mt-0" href="#">Pesanan</a>
+                        <a class="mt-3 text-gray-400 hover:underline sm:mx-3 sm:mt-0" href="#">Catalogue</a>
+                        <a class="mt-3 text-gray-400 hover:underline sm:mx-3 sm:mt-0" href="#">Pesanan</a>
                     </div>
                 </nav>
             </div>

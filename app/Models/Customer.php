@@ -23,6 +23,9 @@ class Customer extends Model
         'nama_customer',
         'alamat_customer',
         'no_telp',
+        'email',
+        'username',
+        'password',
     ];
 
     public function transaksi()

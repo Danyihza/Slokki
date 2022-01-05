@@ -1,5 +1,5 @@
-<footer class="bg-[#F4E3DB]">
-    <div class="container mx-auto px-96 py-3 flex justify-between items-center">
+<footer class="w-full bg-[#F4E3DB]">
+    <div class="container mx-auto md:px-96 py-3 flex justify-between items-center">
         <p class="text-gray-500">Ds. Bermi, Kec. Krucil,Probolinggo</p>
         <div class="flex flex-row items-center">
             <img src="{{ asset('assets/images/instagram.png') }}" class="w-1/6" alt="">
