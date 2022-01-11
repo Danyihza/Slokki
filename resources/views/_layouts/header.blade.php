@@ -1,3 +1,6 @@
+@php
+    $lastTransaction = \App\Models\Transaksi::orderBy('tanggal_transaksi', 'DESC')->first();
+@endphp
 <header class="bg-[#301C11]">
     <div class="container mx-auto px-6 py-3">
         <div class="flex items-center justify-between">
@@ -10,7 +13,7 @@
                         <a class="mt-3 {{ $state == 'Home' ? 'underline text-gray-200' : 'text-gray-400' }} hover:underline sm:mx-3 sm:mt-0" href="{{ route('home.homeView') }}">Home</a>
                         <a class="mt-3 {{ $state == 'Catalogue' ? 'underline text-gray-200' : 'text-gray-400' }} hover:underline sm:mx-3 sm:mt-0" href="{{ route('catalogue.catalogueView') }}">Catalogue</a>
                         @if(session('user'))
-                        <a class="mt-3 {{ $state == 'Pesanan' ? 'underline text-gray-200' : 'text-gray-400' }} text-gray-400 hover:underline sm:mx-3 sm:mt-0" href="#">Pesanan</a>
+                        <a class="mt-3 {{ $state == 'Pesanan' ? 'underline text-gray-200' : 'text-gray-400' }} text-gray-400 hover:underline sm:mx-3 sm:mt-0" href="{{ route('order.orderDetailView') }}?id_transaksi={{ $lastTransaction->id_transaksi }}">Pesanan</a>
                         @endif
                     </div>
                 </nav>

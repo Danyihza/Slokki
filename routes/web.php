@@ -44,8 +44,9 @@ Route::group(['middleware' => 'authorization', 'prefix' => 'checkout'], function
 });
 
 Route::group(['middleware' => 'authorization', 'prefix' => 'order', 'as' => 'order.'], function() {
-    Route::post('/addOrder', [OrderController::class, 'addOrder'])->name('addOrder');
     Route::get('/', [OrderController::class, 'orderDetailView'])->name('orderDetailView');
+    Route::post('/addOrder', [OrderController::class, 'addOrder'])->name('addOrder');
+    Route::post('/uploadBuktiPembayaran', [OrderController::class, 'uploadBuktiPembayaran'])->name('uploadBuktiPembayaran');
 });
 
 Route::group(['middleware' => 'authorization', 'as' => 'cart.'], function () {

@@ -48,8 +48,24 @@ class OrderController extends Controller
         return redirect()->route('order.orderDetailView', ['id_transaksi' => $id_transaksi]);
     }
 
-    public function uploadBuktiTransaksi(Request $request)
+    public function uploadBuktiPembayaran(Request $request)
     {
-        
+        $id_transaksi = $request->id_transaksi;
+        $bukti_pembayaran = $request->file('bukti_pembayaran');
+        $file_name = 'PAYMENT_' . $id_transaksi . '_' . date('YmdHis') . '.' . $bukti_pembayaran->getClientOriginalExtension();
+        $bukti_pembayaran->move('assets/payments/', $file_name);
+
+        $transaksi = Transaksi::where('id_transaksi', $id_transaksi)->first();
+        $transaksi->bukti_pembayaran = $file_name;
+        $transaksi->status = [
+            'diproses' => 1,
+            'dikemas' => 0,
+            'dikirim' => 0,
+            'diterima' => 0,
+            'status' => '25%'
+        ];
+        $transaksi->save();
+
+        return redirect()->back()->with('success', 'Bukti pembayaran berhasil diupload');
     }
 }

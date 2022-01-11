@@ -22,9 +22,15 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
+<style>
+    [x-cloak] {
+        display: none !important;
+    }
+</style>
+
 
 <body class="bg-gray-300">
-    <div x-data="{ cartOpen: {{ session('showCart') ? 'true' : 'false' }}, isOpen: {{ session('showCart') ? 'true' : 'false' }} }">
+    <div x-cloak x-data="{ cartOpen: {{ session('showCart') ? 'true' : 'false' }}, isOpen: {{ session('showCart') ? 'true' : 'false' }}, paymentModal: false }">
 
         @include('_layouts.header')
 

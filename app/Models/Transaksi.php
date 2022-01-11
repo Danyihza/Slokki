@@ -25,7 +25,15 @@ class Transaksi extends Model
         'ongkir',
         'payment_method',
         'address',
+        'bukti_pembayaran',
+        'no_resi',
+        'bukti_resi',
+        'status',
         'tanggal_transaksi',
+    ];
+
+    protected $casts = [
+        'status' => 'object',
     ];
 
     public static function generateTransactionId()
