@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use App\Models\District;
+use App\Models\Owner;
 use App\Models\Province;
 use App\Models\Regency;
 use App\Models\Village;
@@ -33,10 +34,16 @@ class AuthController extends Controller
         $password = $request->password;
 
         $user = Customer::where('username', $username)->first();
+        $owner = Owner::where('username', $username)->first();
 
         if ($user && Hash::check($password, $user->password)) {
             session()->put('user', $user);
             return redirect()->route('home.homeView');
+        }
+
+        if ($owner && Hash::check($password, $owner->password)) {
+            session()->put('owner', $owner);
+            return redirect()->route('admin.homeView');
         }
 
         return redirect()->route('auth.loginView')->with('error', 'Username atau password salah');
@@ -89,6 +96,7 @@ class AuthController extends Controller
     public function signOut()
     {
         session()->forget('user');
+        session()->forget('owner');
         return redirect()->route('auth.loginView');
     }
 }

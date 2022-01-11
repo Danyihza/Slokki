@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CatalogueController;
@@ -57,3 +58,8 @@ Route::group(['middleware' => 'authorization', 'as' => 'cart.'], function () {
     Route::get('/decreaseQuantity', [CartController::class, 'decreaseQuantity'])->name('decreaseQuantity');
 });
 // Route::get('/', [HomeController::class, 'homeView']);
+
+// OWNER ROUTES \\
+Route::group(['as' => 'admin.', 'prefix' => 'admin'], function(){
+    Route::get('/', [AdminHomeController::class, 'homeView'])->name('homeView');
+});

@@ -15,7 +15,9 @@ class Owner extends Model
 
     protected $fillable = [
         'id_owner',
-        'nama_owner'
+        'nama_owner',
+        'username',
+        'password',
     ];
 
     // public function transaksi()
