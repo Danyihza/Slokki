@@ -10,7 +10,7 @@
                         <a class="mt-3 {{ $state == 'Home' ? 'underline text-gray-200' : 'text-gray-400' }} hover:underline sm:mx-3 sm:mt-0" href="{{ route('home.homeView') }}">Home</a>
                         <a class="mt-3 {{ $state == 'Catalogue' ? 'underline text-gray-200' : 'text-gray-400' }} hover:underline sm:mx-3 sm:mt-0" href="{{ route('catalogue.catalogueView') }}">Catalogue</a>
                         @if(session('user'))
-                        <a class="mt-3 text-gray-400 hover:underline sm:mx-3 sm:mt-0" href="#">Pesanan</a>
+                        <a class="mt-3 {{ $state == 'Pesanan' ? 'underline text-gray-200' : 'text-gray-400' }} text-gray-400 hover:underline sm:mx-3 sm:mt-0" href="#">Pesanan</a>
                         @endif
                     </div>
                 </nav>
@@ -40,7 +40,7 @@
                             </svg>
                         </button>
                         <button @click="cartOpen = !cartOpen" class="rounded-full shadow bg-cyan-300 text-xs px-1 flex justify-center items-center border border-transparent">
-                            0
+                            {{ session('cart') ? count(session('cart')) : 0 }}
                         </button>
         
                         <div class="flex sm:hidden">

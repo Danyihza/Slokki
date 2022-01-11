@@ -22,6 +22,7 @@ class DetailTransaksi extends Model
         'id_detail_transaksi',
         'id_transaksi',
         'id_produk',
+        'price',
         'jumlah'
     ];
 

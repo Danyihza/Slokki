@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ApiController;
+use App\Http\Controllers\Api\CartController;
 use App\Http\Controllers\Api\Region;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,4 +26,5 @@ Route::group(['as' => 'api.'], function(){
     Route::get('/village', [Region::class, 'getVillages'])->name('getVillages');
     Route::get('/checkEmail', [ApiController::class, 'checkEmail'])->name('checkEmail');
     Route::get('/checkUsername', [ApiController::class, 'checkUsername'])->name('checkUsername');
+    Route::get('/addToCart', [CartController::class, 'addToCart'])->name('addToCart');
 });

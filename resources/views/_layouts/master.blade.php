@@ -19,11 +19,12 @@
 
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 
 <body class="bg-gray-300">
-    <div x-data="{ cartOpen: false , isOpen: false }">
+    <div x-data="{ cartOpen: {{ session('showCart') ? 'true' : 'false' }}, isOpen: {{ session('showCart') ? 'true' : 'false' }} }">
 
         @include('_layouts.header')
 
@@ -35,6 +36,40 @@
 
     </div>
 </body>
+
+<script>
+    function increaseQuantityCart(id) {
+        const url = `{{ route('cart.increaseQuantity') }}?product_id=${id}`;
+        window.location.href = url;
+        return;
+    }
+
+    function decreaseQuantityCart(id) {
+        const url = `{{ route('cart.decreaseQuantity') }}?product_id=${id}`;
+        window.location.href = url;
+        return;
+    }
+</script>
+
+@if(session('updated_cart'))
+<script>
+    const toast = (function swalFire(){
+        const Toast = Swal.mixin({
+        toast: true,
+        position: 'bottom-end',
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: false,
+        })
+
+        Toast.fire({
+            icon: 'success',
+            title: `<span class="text-sm font-bold">{{ session('updated_cart') }}</span>`
+        })
+        return swalFire;
+    }())
+</script>
+@endif
 
 @yield('script')
 

@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CatalogueController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,5 +34,25 @@ Route::group(['as' => 'home.'], function () {
 
 Route::group(['prefix' => 'catalogue', 'as' => 'catalogue.'], function () {
     Route::get('/', [CatalogueController::class, 'catalogueView'])->name('catalogueView');
+});
+
+Route::group(['middleware' => 'authorization', 'prefix' => 'checkout'], function () {
+    Route::post('/', [CheckoutController::class, 'checkout'])->name('checkout');
+    Route::get('/checkoutView', [CheckoutController::class, 'checkoutView'])->name('checkoutView');
+    Route::get('/changeAddressView', [CheckoutController::class, 'changeAddressView'])->name('changeAddressView');
+    Route::post('/changeAddress', [CheckoutController::class, 'changeAdress'])->name('changeAddress');
+});
+
+Route::group(['middleware' => 'authorization', 'prefix' => 'order', 'as' => 'order.'], function() {
+    Route::post('/addOrder', [OrderController::class, 'addOrder'])->name('addOrder');
+    Route::get('/', [OrderController::class, 'orderDetailView'])->name('orderDetailView');
+});
+
+Route::group(['middleware' => 'authorization', 'as' => 'cart.'], function () {
+    Route::get('/addToCart', [CartController::class, 'addToCart'])->name('addToCart');
+    Route::get('/showCart', [CartController::class, 'showCart'])->name('showCart');
+    Route::get('/flushCart', [CartController::class, 'flushCart'])->name('flushCart');
+    Route::get('/increaseQuantity', [CartController::class, 'increaseQuantity'])->name('increaseQuantity');
+    Route::get('/decreaseQuantity', [CartController::class, 'decreaseQuantity'])->name('decreaseQuantity');
 });
 // Route::get('/', [HomeController::class, 'homeView']);

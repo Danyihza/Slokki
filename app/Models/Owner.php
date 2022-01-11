@@ -18,10 +18,10 @@ class Owner extends Model
         'nama_owner'
     ];
 
-    public function transaksi()
-    {
-        return $this->hasMany(Transaksi::class, 'id_owner', 'id_owner');
-    }
+    // public function transaksi()
+    // {
+    //     return $this->hasMany(Transaksi::class, 'id_owner', 'id_owner');
+    // }
 
     public function pengeluaran()
     {
