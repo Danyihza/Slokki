@@ -60,7 +60,7 @@
                 </div>
                 <div class="flex flex-row justify-between mt-6">
                     <h3 class="text-xl w-1/4 text-gray-800 font-medium">Biaya Kirim</h3>
-                    <input type="text" value="Rp 3.000" name="ongkir" id="ongkir" disabled
+                    <input type="text" value="{{ $transaksi->ongkir ? 'Rp' . number_format($transaksi->ongkir,0 , ',', '.') : 'Ongkir belum tersedia' }}" name="ongkir" id="ongkir" disabled
                         class="ml-10 w-3/4 disabled:bg-gray-100 disabled:text-gray-600 focus:ring-brown-500 focus:border-brown-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                 </div>
                 <div class="flex flex-row justify-between mt-6">
@@ -76,12 +76,15 @@
                 </div>
                 <div class="flex flex-row justify-between mt-6">
                     <h3 class="text-xl w-1/4 text-gray-800 font-medium">Total Harga</h3>
-                    <input type="text" value="Rp 3.000" name="total_amount" id="total_amount" disabled
+                    <input type="text" value="Rp {{ number_format($transaksi->total_amount,0,',','.') }} {{ $transaksi->ongkir ? '(Termasuk ongkir)' : '(Belum termasuk ongkir)' }}" name="total_amount" id="total_amount" disabled
                         class="ml-10 w-3/4 disabled:bg-gray-100 disabled:text-gray-600 focus:ring-brown-500 focus:border-brown-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                 </div>
                 <div class="w-full bg-gray-200 rounded-sm mt-6">
                     @php
-                        switch ($transaksi->status->status) {
+                        switch ($transaksi->status['status']) {
+                            case '0%':
+                                $status = 'Belum Dibayar';
+                                break;
                             case '25%':
                                 $status = 'Diproses';
                                 break;
@@ -99,8 +102,8 @@
                                 break;
                         }
                     @endphp
-                    <div class="bg-[#F4E3DB] text-xs font-medium text-[#301C11] text-center p-0.5 leading-none rounded-sm"
-                        style="width: {{ $transaksi->status->status }}"> {{ $transaksi->status->status }} ({{ $status }})</div>
+                    <div class="{{ $transaksi->status['status'] == '0%' ? 'bg-red-500' : 'bg-[#F4E3DB]' }} text-xs font-medium text-[#301C11] text-center p-0.5 leading-none rounded-sm"
+                        style="width: {{ $transaksi->status['status'] == '0%' ? '10%' : $transaksi->status['status'] }}"> {{ $transaksi->status['status'] == '0%' ? '' : $transaksi->status['status'] }} ({{ $status }})</div>
                 </div>
                 <div class="flex flex-row justify-between mt-12">
                     @if($transaksi->bukti_pembayaran == null)
@@ -123,7 +126,7 @@
                         Lihat Bukti Pembayaran
                     </button>
                     @endif
-                    <button type="button" {{ $transaksi->status->dikirim != 1 ? 'disabled' : '' }}
+                    <button type="button" {{ $transaksi->status['dikirim'] != 1 ? 'disabled' : '' }}
                         class="flex w-fit items-center disabled:cursor-not-allowed cursor-pointer justify-center mt-4 px-3 py-2 disabled:bg-gray-400 hover:opacity-90 bg-[#301C11] text-white text-sm font-medium rounded focus:outline-none focus:bg-[#301C11]">
                         Pesanan Diterima
                     </button>

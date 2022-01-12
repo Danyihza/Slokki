@@ -29,7 +29,10 @@ class CartController extends Controller
                 ]
             ];
             session()->put('cart', $cart);
-            return redirect()->back()->with('updated_cart', 'Product added to cart successfully!');
+            return redirect()->back()->with([
+                'updated_cart' => 'Product added to cart successfully!',
+                'showCart' => true
+            ]);
         }
 
         if (isset($cart[$product_id])) {
@@ -67,6 +70,11 @@ class CartController extends Controller
     {
         $product_id = $request->product_id;
         $cart = session()->get('cart');
+        if (!isset($cart[$product_id])) {
+            return redirect()->back()->with([
+                'showCart' => true
+            ]);
+        }
         $cart[$product_id]['quantity']--;
         if ($cart[$product_id]['quantity'] == 0) {
             unset($cart[$product_id]);

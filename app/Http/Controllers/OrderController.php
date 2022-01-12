@@ -13,7 +13,7 @@ class OrderController extends Controller
     {
         $id_transaksi = $request->id_transaksi;
         $data['transaksi'] = Transaksi::where('id_transaksi', $id_transaksi)->with('customer', 'detailTransaksi')->first();
-        // dd($data['transaksi']->detailTransaksi[0]->id_detail_transaksi);
+        // dd($data['transaksi']->status);
         $data['state'] = 'Pesanan';
         return view('order_detail', $data);
     }
@@ -30,6 +30,13 @@ class OrderController extends Controller
         $newTransaksi->payment_method = strtoupper($request->payment_method);
         $newTransaksi->address = $request->alamat;
         $newTransaksi->tanggal_transaksi = now();
+        $newTransaksi->status = [
+            'diproses' => 0,
+            'dikemas' => 0,
+            'dikirim' => 0,
+            'diterima' => 0,
+            'status' => '0%',
+        ];
         $newTransaksi->save();
 
         foreach ($confirmed_product['data'] as $key => $value) {
@@ -56,14 +63,11 @@ class OrderController extends Controller
         $bukti_pembayaran->move('assets/payments/', $file_name);
 
         $transaksi = Transaksi::where('id_transaksi', $id_transaksi)->first();
+        $status = $transaksi->status;
+        $status['diproses'] = 1;
+        $status['status'] = '25%';
         $transaksi->bukti_pembayaran = $file_name;
-        $transaksi->status = [
-            'diproses' => 1,
-            'dikemas' => 0,
-            'dikirim' => 0,
-            'diterima' => 0,
-            'status' => '25%'
-        ];
+        $transaksi->status = $status;
         $transaksi->save();
 
         return redirect()->back()->with('success', 'Bukti pembayaran berhasil diupload');

@@ -33,7 +33,7 @@ class Transaksi extends Model
     ];
 
     protected $casts = [
-        'status' => 'object',
+        'status' => 'array',
     ];
 
     public static function generateTransactionId()
