@@ -12,7 +12,7 @@
 
     <meta name="description" content="">
 
-    <title>Slokki Shop</title>
+    <title>Slokki Shop | Owner Page</title>
 
     {{-- <link rel="stylesheet" href="/assets/build/css/main.css?id=77327fb28ae9659bdf38"> --}}
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -40,40 +40,6 @@
 
     </div>
 </body>
-
-<script>
-    function increaseQuantityCart(id) {
-        const url = `{{ route('cart.increaseQuantity') }}?product_id=${id}`;
-        window.location.href = url;
-        return;
-    }
-
-    function decreaseQuantityCart(id) {
-        const url = `{{ route('cart.decreaseQuantity') }}?product_id=${id}`;
-        window.location.href = url;
-        return;
-    }
-</script>
-
-@if(session('updated_cart'))
-<script>
-    const toast = (function swalFire(){
-        const Toast = Swal.mixin({
-        toast: true,
-        position: 'bottom-end',
-        showConfirmButton: false,
-        timer: 2000,
-        timerProgressBar: false,
-        })
-
-        Toast.fire({
-            icon: 'success',
-            title: `<span class="text-sm font-bold">{{ session('updated_cart') }}</span>`
-        })
-        return swalFire;
-    }())
-</script>
-@endif
 
 @yield('script')
 
