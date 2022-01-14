@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
+use App\Http\Controllers\Admin\TransaksiController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CatalogueController;
@@ -60,6 +61,7 @@ Route::group(['middleware' => 'authorization', 'as' => 'cart.'], function () {
 // Route::get('/', [HomeController::class, 'homeView']);
 
 // OWNER ROUTES \\
-Route::group(['as' => 'admin.', 'prefix' => 'admin'], function(){
+Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'authorization'], function(){
     Route::get('/', [AdminHomeController::class, 'homeView'])->name('homeView');
+    Route::get('/transaksi', [TransaksiController::class, 'transactionView'])->name('transactionView');
 });

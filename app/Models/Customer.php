@@ -28,6 +28,10 @@ class Customer extends Model
         'password',
     ];
 
+    protected $hidden = [
+        'password',
+    ];
+
     public function transaksi()
     {
         return $this->hasMany(Transaksi::class, 'id_customer', 'id_customer');

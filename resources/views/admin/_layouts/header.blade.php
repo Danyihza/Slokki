@@ -11,7 +11,7 @@
                 <nav :class="isOpen ? 'hidden' : 'hidden'" class="sm:flex sm:justify-center sm:items-center mt-1">
                     <div class="flex flex-col sm:flex-row">
                         <a class="mt-3 {{ $state == 'Home' ? 'underline text-gray-200' : 'text-gray-400' }} hover:underline sm:mx-3 sm:mt-0" href="{{ route('home.homeView') }}">Home</a>
-                        <a class="mt-3 {{ $state == 'Catalogue' ? 'underline text-gray-200' : 'text-gray-400' }} hover:underline sm:mx-3 sm:mt-0" href="{{ route('catalogue.catalogueView') }}">Transaksi</a>
+                        <a class="mt-3 {{ $state == 'Catalogue' ? 'underline text-gray-200' : 'text-gray-400' }} hover:underline sm:mx-3 sm:mt-0" href="{{ route('admin.transactionView') }}?id_transaksi=TRX0000001">Transaksi</a>
                         <a class="mt-3 text-gray-400 hover:underline sm:mx-3 sm:mt-0" href="{{ route('catalogue.catalogueView') }}">Pengeluaran</a>
                         <a class="mt-3 text-gray-400 hover:underline sm:mx-3 sm:mt-0" href="{{ route('catalogue.catalogueView') }}">Stok</a>
                         <a class="mt-3 text-gray-400 hover:underline sm:mx-3 sm:mt-0" href="{{ route('catalogue.catalogueView') }}">Report</a>

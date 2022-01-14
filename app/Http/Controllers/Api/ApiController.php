@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
+use App\Models\Transaksi;
 use Illuminate\Http\Request;
 
 class ApiController extends Controller
@@ -46,5 +47,16 @@ class ApiController extends Controller
                 'message' => 'Username tidak ditemukan'
             ]);
         }
+    }
+
+    public function getTransaction(Request $request)
+    {
+        $id = $request->id;
+        $transaction = Transaksi::where('id_transaksi', $id)->with('detailTransaksi','customer','DetailTransaksi.produk')->first();
+        return response()->json([
+            'code' => 200,
+            'status' => 'success',
+            'data' => $transaction
+        ]);
     }
 }

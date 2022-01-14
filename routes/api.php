@@ -27,4 +27,5 @@ Route::group(['as' => 'api.'], function(){
     Route::get('/checkEmail', [ApiController::class, 'checkEmail'])->name('checkEmail');
     Route::get('/checkUsername', [ApiController::class, 'checkUsername'])->name('checkUsername');
     Route::get('/addToCart', [CartController::class, 'addToCart'])->name('addToCart');
+    Route::get('/getTransaction', [ApiController::class, 'getTransaction'])->name('getTransaction');
 });
