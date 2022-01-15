@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
+use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\Admin\StokController;
 use App\Http\Controllers\Admin\TransaksiController;
 use App\Http\Controllers\AuthController;
@@ -69,4 +70,6 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'authorizat
     Route::post('/addStokBahanBaku', [StokController::class, 'addStokBahanBaku'])->name('addStokBahanBaku');
     Route::post('/addStokBarangProses', [StokController::class, 'addStokBarangProses'])->name('addStokBarangProses');
     Route::post('/addStokProdukJadi', [StokController::class, 'addStokProdukJadi'])->name('addStokProdukJadi');
+    Route::get('/report', [ReportController::class, 'reportView'])->name('reportView');
+
 });

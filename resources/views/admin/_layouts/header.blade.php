@@ -14,7 +14,7 @@
                         <a class="mt-3 {{ $state == 'Catalogue' ? 'underline text-gray-200' : 'text-gray-400' }} hover:underline sm:mx-3 sm:mt-0" href="{{ route('admin.transactionView') }}?id_transaksi=TRX0000001">Transaksi</a>
                         <a class="mt-3 text-gray-400 hover:underline sm:mx-3 sm:mt-0" href="{{ route('catalogue.catalogueView') }}">Pengeluaran</a>
                         <a class="mt-3 {{ $state == 'stok' ? 'underline text-gray-200' : 'text-gray-400' }} hover:underline sm:mx-3 sm:mt-0" href="{{ route('admin.stokView') }}">Stok</a>
-                        <a class="mt-3 text-gray-400 hover:underline sm:mx-3 sm:mt-0" href="{{ route('catalogue.catalogueView') }}">Report</a>
+                        <a class="mt-3 {{ $state == 'report' ? 'underline text-gray-200' : 'text-gray-400' }} hover:underline sm:mx-3 sm:mt-0" href="{{ route('admin.reportView') }}">Report</a>
                         <a class="mt-3 text-gray-400 hover:underline sm:mx-3 sm:mt-0" href="{{ route('catalogue.catalogueView') }}">Laporan Keuangan</a>
                     </div>
                 </nav>

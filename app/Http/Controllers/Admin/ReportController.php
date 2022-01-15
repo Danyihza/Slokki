@@ -7,5 +7,10 @@ use Illuminate\Http\Request;
 
 class ReportController extends Controller
 {
-    //
+    public function reportView()
+    {
+        $data['state'] = 'report';
+
+        return view('admin.report', $data);
+    }
 }

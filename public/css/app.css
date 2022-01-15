@@ -1155,8 +1155,14 @@ select {
 .pl-10 {
   padding-left: 2.5rem;
 }
+.pl-16 {
+  padding-left: 4rem;
+}
 .text-center {
   text-align: center;
+}
+.text-right {
+  text-align: right;
 }
 .align-middle {
   vertical-align: middle;
@@ -1201,6 +1207,9 @@ select {
 }
 .font-semibold {
   font-weight: 600;
+}
+.font-normal {
+  font-weight: 400;
 }
 .uppercase {
   text-transform: uppercase;
@@ -1268,6 +1277,9 @@ select {
 }
 .underline-offset-4 {
   text-underline-offset: 4px;
+}
+.underline-offset-8 {
+  text-underline-offset: 8px;
 }
 .antialiased {
   -webkit-font-smoothing: antialiased;
