@@ -18,8 +18,8 @@ class CreateStokBarangProsesTable extends Migration
             $table->date('bulan');
             $table->integer('fermentasi_awal');
             $table->integer('fermentasi_akhir');            
-            $table->integer('stok_awal');
-            $table->integer('stok_akhir');
+            $table->integer('roasting_awal');
+            $table->integer('roasting_akhir');
             $table->timestamps();
         });
     }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
+use App\Http\Controllers\Admin\StokController;
 use App\Http\Controllers\Admin\TransaksiController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
@@ -64,4 +65,8 @@ Route::group(['middleware' => 'authorization', 'as' => 'cart.'], function () {
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'authorization'], function(){
     Route::get('/', [AdminHomeController::class, 'homeView'])->name('homeView');
     Route::get('/transaksi', [TransaksiController::class, 'transactionView'])->name('transactionView');
+    Route::get('/stok', [StokController::class, 'stokView'])->name('stokView');
+    Route::post('/addStokBahanBaku', [StokController::class, 'addStokBahanBaku'])->name('addStokBahanBaku');
+    Route::post('/addStokBarangProses', [StokController::class, 'addStokBarangProses'])->name('addStokBarangProses');
+    Route::post('/addStokProdukJadi', [StokController::class, 'addStokProdukJadi'])->name('addStokProdukJadi');
 });
