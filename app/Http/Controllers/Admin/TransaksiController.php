@@ -13,7 +13,7 @@ class TransaksiController extends Controller
         $data['state'] = 'Transaksi';
         $data['transactions'] = Transaksi::orderBy('tanggal_transaksi', 'DESC')->get();
         // dd($data['transactions']);
-        $data['transaksi'] = Transaksi::where('id_transaksi', $request->id_transaksi)->first();
+        // $data['transaksi'] = Transaksi::where('id_transaksi', $request->id_transaksi)->first();
         return view('admin.transaksi', $data);
     }
 }
