@@ -22,239 +22,286 @@
         </div>
         @endif
         <div id="content-container" class="mt-16 bg-brown-100 rounded-md p-6 px-16">
-            <h3 class="text-gray-800 text-3xl mb-8 font-bold">Harga Pokok Produksi</h3>
-                <div class="col-span-3 sm:col-span-3 mb-4">
-                    <div class="flex flex-row mt-6">
-                        <h3 class="text-xl w-1/4 text-gray-800 font-medium">Bulan</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <input type="month" name="bulan" id="bulan"
-                                class="w-full disabled:bg-gray-100 disabled:text-gray-600 focus:ring-brown-500 focus:border-brown-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                        </div>
+            <h3 class="text-gray-800 text-3xl mb-8 font-bold">Rekap Pemasukan</h3>
+            <div class="col-span-3 sm:col-span-3 mb-4">
+                <div class="flex flex-row mt-6">
+                    <h3 class="text-xl w-1/4 text-gray-800 font-medium">Bulan</h3>
+                    <div class="ml-5 flex flex-col w-1/2">
+                        <input type="month" name="bulan" id="bulan"
+                            class="w-full disabled:bg-gray-100 disabled:text-gray-600 focus:ring-brown-500 focus:border-brown-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                     </div>
-                    <div class="flex flex-row mt-6">
-                        <h3 class="text-xl w-1/4 text-gray-800 font-bold">Pemakaian Bahan Baku</h3>
-                    </div>
-                    <div class="flex flex-row justify-between mt-6">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-normal">Persediaan Bahan Baku (Awal)</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-1/4 text-gray-800 font-normal text-right">1.157.500</h3>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-between mt-3">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-normal">Pembelian Bahan Baku</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-1/4 text-gray-800 font-normal text-right underline underline-offset-8">584.500</h3>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-between mt-3">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-normal pl-16">Pers. Bahan Baku yang Tersedia</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-1/4 text-gray-800 font-normal text-right">1.742.000</h3>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-between mt-3">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-normal">Persediaan Bahan Baku (Akhir)</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-1/4 text-gray-800 font-normal text-right underline underline-offset-8">584.500</h3>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-between mt-3">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-normal pl-16">Pemakaian Bahan Baku</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-3/4 text-gray-800 font-normal text-right">1.742.000</h3>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-between mt-3">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-bold">Biaya Tenaga Kerja Langsung</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-3/4 text-gray-800 font-bold text-right">2.550.000</h3>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-between mt-3">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-bold">Biaya Overhead Pabrik</h3>
-                    </div>
-                    <div class="flex flex-row justify-between mt-3">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-normal">Bahan Penolong</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-1/4 text-gray-800 font-normal text-right">0</h3>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-between mt-3">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-normal">BOP-D</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-1/4 text-gray-800 font-normal text-right underline underline-offset-8">584.500</h3>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-between mt-3">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-normal pl-16">Jumlah Biaya Overhead Pabrik</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-3/4 text-gray-800 font-normal text-right underline underline-offset-8">1.742.000</h3>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-between mt-3">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-bold pl-16">Jumlah Biaya Produksi</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-3/4 text-gray-800 font-bold text-right">1.742.000</h3>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-between mt-3">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-normal">Persediaan BDP (Awal)</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-3/4 text-gray-800 font-normal text-right underline underline-offset-8">584.500</h3>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-between mt-3">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-normal pl-16">Jumlah Barang Dalam Proses</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-3/4 text-gray-800 font-normal text-right">1.742.000</h3>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-between mt-3">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-normal">Persediaan BDP (Akhir)</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-3/4 text-gray-800 font-normal text-right underline underline-offset-8">584.500</h3>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-between mt-3">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-bold pl-16">Harga Pokok Produksi</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-3/4 text-gray-800 font-bold text-right">1.742.000</h3>
+                </div>
+                <!-- This example requires Tailwind CSS v2.0+ -->
+                <div class="flex flex-col mt-6">
+                    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                                <table class="min-w-full divide-y divide-gray-200">
+                                    <thead class="bg-[#343A40]">
+                                        <tr>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                                No
+                                            </th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                                ID Customer
+                                            </th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                                Nama Customer
+                                            </th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                                Tanggal
+                                            </th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                                ID Produk
+                                            </th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                                Harga Satuan
+                                            </th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                                Jumlah
+                                            </th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                                Total Harga
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-[#3F444A] divide-y divide-gray-200">
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                1
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                <div class="text-sm text-white">Regional Paradigm Technician</div>
+                                                <div class="text-sm text-white">Optimization</div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                <div class="text-sm text-white">Regional Paradigm Technician</div>
+                                                <div class="text-sm text-white">Optimization</div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                Admin
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                Admin
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                Admin
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                Admin
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                Admin
+                                            </td>
+                                        </tr>
+
+                                        <!-- More people... -->
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
 
         <div id="content-container" class="mt-16 bg-brown-100 rounded-md p-6 px-16">
-            <h3 class="text-gray-800 text-3xl mb-8 font-bold">Harga Pokok Penjualan</h3>
-                <div class="col-span-3 sm:col-span-3 mb-4">
-                    <div class="flex flex-row mt-6">
-                        <h3 class="text-xl w-1/4 text-gray-800 font-medium">Bulan</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <input type="month" name="bulan" id="bulan"
-                                class="w-full disabled:bg-gray-100 disabled:text-gray-600 focus:ring-brown-500 focus:border-brown-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                        </div>
+            <h3 class="text-gray-800 text-3xl mb-8 font-bold">Rekap Penyuplaian</h3>
+            <div class="col-span-3 sm:col-span-3 mb-4">
+                <div class="flex flex-row mt-6">
+                    <h3 class="text-xl w-1/4 text-gray-800 font-medium">Bulan</h3>
+                    <div class="ml-5 flex flex-col w-1/2">
+                        <input type="month" name="bulan" id="bulan"
+                            class="w-full disabled:bg-gray-100 disabled:text-gray-600 focus:ring-brown-500 focus:border-brown-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                     </div>
-                    <div class="flex flex-row justify-between mt-6">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-bold">Komponen HPP</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-1/4 text-gray-800 font-bold text-right">Besaran</h3>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-between mt-6">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-normal">Persediaan Awal</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-1/4 text-gray-800 font-normal text-right">1.157.500</h3>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-between mt-3">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-normal">Pembelian Bersih</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-1/4 text-gray-800 font-normal text-right">584.500</h3>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-between mt-3">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-normal">Persediaan Akhir</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-1/4 text-gray-800 font-normal text-right">584.500</h3>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-between mt-6">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-bold">Total HPP</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-1/4 text-gray-800 font-bold text-right">1.738.000</h3>
+                </div>
+                <!-- This example requires Tailwind CSS v2.0+ -->
+                <div class="flex flex-col mt-6">
+                    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                                <table class="min-w-full divide-y divide-gray-200">
+                                    <thead class="bg-[#343A40]">
+                                        <tr>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                                No
+                                            </th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                                ID Supplier
+                                            </th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                                Nama Supplier
+                                            </th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                                Tanggal
+                                            </th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                                ID Bahan Baku
+                                            </th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                                Harga per kg
+                                            </th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                                Kuantitas
+                                            </th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                                Total Harga
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-[#3F444A] divide-y divide-gray-200">
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                1
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                <div class="text-sm text-white">Regional Paradigm Technician</div>
+                                                <div class="text-sm text-white">Optimization</div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                <div class="text-sm text-white">Regional Paradigm Technician</div>
+                                                <div class="text-sm text-white">Optimization</div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                Admin
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                Admin
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                Admin
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                Admin
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                Admin
+                                            </td>
+                                        </tr>
+
+                                        <!-- More people... -->
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
+
         <div id="content-container" class="mt-16 bg-brown-100 rounded-md p-6 px-16">
-            <h3 class="text-gray-800 text-3xl mb-8 font-bold">Laporan Laba Rugi</h3>
-                <div class="col-span-3 sm:col-span-3 mb-4">
-                    <div class="flex flex-row mt-6">
-                        <h3 class="text-xl w-1/4 text-gray-800 font-medium">Bulan</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <input type="month" name="bulan" id="bulan"
-                                class="w-full disabled:bg-gray-100 disabled:text-gray-600 focus:ring-brown-500 focus:border-brown-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                        </div>
+            <h3 class="text-gray-800 text-3xl mb-8 font-bold">Rekap Pengeluaran</h3>
+            <div class="col-span-3 sm:col-span-3 mb-4">
+                <div class="flex flex-row mt-6">
+                    <h3 class="text-xl w-1/4 text-gray-800 font-medium">Bulan</h3>
+                    <div class="ml-5 flex flex-col w-1/2">
+                        <input type="month" name="bulan" id="bulan"
+                            class="w-full disabled:bg-gray-100 disabled:text-gray-600 focus:ring-brown-500 focus:border-brown-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                     </div>
-                    <div class="flex flex-row mt-6">
-                        <h3 class="text-xl w-1/4 text-gray-800 font-bold">Pendapatan (Revenue)</h3>
-                    </div>
-                    <div class="flex flex-row justify-between mt-3">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-normal pl-16">Penjualan</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-1/4 text-gray-800 font-normal text-right">1.742.000</h3>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-between mt-3">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-normal pl-16">Pendapatan Lain</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-1/4 text-gray-800 font-normal text-right">1.742.000</h3>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-between mt-3">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-normal">Total Pendapatan</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-3/4 text-gray-800 font-normal text-right">2.550.000</h3>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-between mt-3">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-bold">Harga Pokok Penjualan</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-3/4 text-gray-800 font-bold text-right">2.550.000</h3>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-between mt-3">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-normal">Laba/Rugi Kotor</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-3/4 text-gray-800 font-normal text-right">2.550.000</h3>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-between mt-3">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-bold">Beban Operasional</h3>
-                    </div>
-                    <div class="flex flex-row justify-between mt-3">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-normal pl-16">Pajak dan Pemeliharaan Bangunan</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-1/4 text-gray-800 font-normal text-right">1.742.000</h3>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-between mt-3">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-normal pl-16">Transportasi dan Bensin</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-1/4 text-gray-800 font-normal text-right">1.742.000</h3>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-between mt-3">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-normal pl-16">Interbet & Pulsa</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-1/4 text-gray-800 font-normal text-right">1.742.000</h3>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-between mt-3">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-normal">Total Biaya</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-3/4 text-gray-800 font-normal text-right">2.550.000</h3>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-between mt-3">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-normal">Laba Sebelum Pajak</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-3/4 text-gray-800 font-normal text-right">2.550.000</h3>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-between mt-3">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-normal pl-16">Pajak Penghasilan</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-1/4 text-gray-800 font-normal text-right">1.742.000</h3>
-                        </div>
-                    </div>
-                    <div class="flex flex-row justify-between mt-3">
-                        <h3 class="text-xl w-1/2 text-gray-800 font-bold">Laba Bersih</h3>
-                        <div class="ml-5 flex flex-col w-1/2">
-                            <h3 class="text-xl w-3/4 text-gray-800 font-bold text-right">2.550.000</h3>
+                </div>
+                <!-- This example requires Tailwind CSS v2.0+ -->
+                <div class="flex flex-col mt-6">
+                    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                                <table class="min-w-full divide-y divide-gray-200">
+                                    <thead class="bg-[#343A40]">
+                                        <tr>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                                No
+                                            </th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                                ID Pengeluaran
+                                            </th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                                Nama Pengeluaran
+                                            </th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                                Tanggal
+                                            </th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                                Jenis Pengeluaran
+                                            </th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                                Harga
+                                            </th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                                Satuan
+                                            </th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                                Jumlah
+                                            </th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                                Total Harga
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-[#3F444A] divide-y divide-gray-200">
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                1
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                <div class="text-sm text-white">Regional Paradigm Technician</div>
+                                                <div class="text-sm text-white">Optimization</div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                <div class="text-sm text-white">Regional Paradigm Technician</div>
+                                                <div class="text-sm text-white">Optimization</div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                Admin
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                Admin
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                Admin
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                Admin
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                Admin
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                                                Admin
+                                            </td>
+                                        </tr>
+
+                                        <!-- More people... -->
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 </main>
