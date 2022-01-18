@@ -16,7 +16,9 @@ class DetailPenyuplaian extends Model
     protected $fillable = [
         'id_detail_penyuplaian',
         'id_penyuplaian',
-        'id_bahan_baku'
+        'id_bahan_baku',
+        'harga_beli',
+        'kuantitas'
     ];
 
     public function penyuplaian()
