@@ -1,7 +1,7 @@
-@php
+{{-- @php
     $lastTransaction = \App\Models\Transaksi::orderBy('tanggal_transaksi', 'DESC')->first();
-@endphp
-<header class="bg-[#301C11]">
+@endphp --}}
+<header class="bg-[#301c11]">
     <div class="container mx-auto px-6 py-3">
         <div class="flex items-center justify-between">
             <div class="flex flex-row justify-start w-3/4 space-x-7">
@@ -10,12 +10,12 @@
                 </div>
                 <nav :class="isOpen ? 'hidden' : 'hidden'" class="sm:flex sm:justify-center sm:items-center mt-1">
                     <div class="flex flex-col sm:flex-row">
-                        <a class="mt-3 {{ $state == 'Home' ? 'underline text-gray-200' : 'text-gray-400' }} hover:underline sm:mx-3 sm:mt-0" href="{{ route('home.homeView') }}">Home</a>
-                        <a class="mt-3 {{ $state == 'Catalogue' ? 'underline text-gray-200' : 'text-gray-400' }} hover:underline sm:mx-3 sm:mt-0" href="{{ route('admin.transactionView') }}?id_transaksi=TRX0000001">Transaksi</a>
-                        <a class="mt-3 text-gray-400 hover:underline sm:mx-3 sm:mt-0" href="{{ route('catalogue.catalogueView') }}">Pengeluaran</a>
+                        <a class="mt-3 {{ $state == 'Home' ? 'underline text-gray-200' : 'text-gray-400' }} hover:underline sm:mx-3 sm:mt-0" href="{{ route('admin.homeView') }}">Home</a>
+                        <a class="mt-3 {{ $state == 'Transaksi' ? 'underline text-gray-200' : 'text-gray-400' }} hover:underline sm:mx-3 sm:mt-0" href="{{ route('admin.transactionView') }}">Transaksi</a>
+                        <a class="mt-3 text-gray-400 hover:underline sm:mx-3 sm:mt-0" href="#">Pengeluaran</a>
                         <a class="mt-3 {{ $state == 'stok' ? 'underline text-gray-200' : 'text-gray-400' }} hover:underline sm:mx-3 sm:mt-0" href="{{ route('admin.stokView') }}">Stok</a>
                         <a class="mt-3 {{ $state == 'report' ? 'underline text-gray-200' : 'text-gray-400' }} hover:underline sm:mx-3 sm:mt-0" href="{{ route('admin.reportView') }}">Report</a>
-                        <a class="mt-3 text-gray-400 hover:underline sm:mx-3 sm:mt-0" href="{{ route('catalogue.catalogueView') }}">Laporan Keuangan</a>
+                        <a class="mt-3 text-gray-400 hover:underline sm:mx-3 sm:mt-0" href="#">Laporan Keuangan</a>
                     </div>
                 </nav>
             </div>

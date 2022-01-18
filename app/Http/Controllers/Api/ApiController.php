@@ -52,7 +52,7 @@ class ApiController extends Controller
     public function getTransaction(Request $request)
     {
         $id = $request->id;
-        $transaction = Transaksi::where('id_transaksi', $id)->with('detailTransaksi','customer','DetailTransaksi.produk')->first();
+        $transaction = Transaksi::where('id_transaksi', $id)->with('detailTransaksi','customer','DetailTransaksi.produk','DetailTransaksi.transaksi')->first();
         return response()->json([
             'code' => 200,
             'status' => 'success',

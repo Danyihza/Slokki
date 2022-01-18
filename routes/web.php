@@ -71,5 +71,6 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'authorizat
     Route::post('/addStokBarangProses', [StokController::class, 'addStokBarangProses'])->name('addStokBarangProses');
     Route::post('/addStokProdukJadi', [StokController::class, 'addStokProdukJadi'])->name('addStokProdukJadi');
     Route::get('/report', [ReportController::class, 'reportView'])->name('reportView');
+    Route::post('/transaksi/updateTransaksi', [TransaksiController::class, 'updateTransaction'])->name('updateTransaction');
 
 });
