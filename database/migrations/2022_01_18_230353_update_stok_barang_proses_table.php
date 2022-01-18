@@ -13,11 +13,15 @@ class UpdateStokBarangProsesTable extends Migration
      */
     public function up()
     {
-        Schema::table('stok_barang_proses', function (Blueprint $table) {
-            $table->float('fermentasi_awal')->change();
-            $table->float('fermentasi_akhir')->change();            
-            $table->float('roasting_awal')->change();
-            $table->float('roasting_akhir')->change();
+        Schema::dropIfExists('stok_barang_proses');
+        Schema::create('stok_barang_proses', function (Blueprint $table) {
+            $table->string('id_stok_barang_proses', 100)->primary();
+            $table->date('bulan');
+            $table->double('fermentasi_awal');
+            $table->double('fermentasi_akhir');            
+            $table->double('roasting_awal');
+            $table->double('roasting_akhir');
+            $table->timestamps();
         });
     }
 
