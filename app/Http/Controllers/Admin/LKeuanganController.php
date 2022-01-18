@@ -7,5 +7,10 @@ use Illuminate\Http\Request;
 
 class LKeuanganController extends Controller
 {
-    //
+    public function laporanKeuanganView()
+    {
+        $data['state'] = 'laporan_keuangan';
+
+        return view('admin.laporan_keuangan', $data);
+    }
 }
