@@ -58,10 +58,10 @@ class StokController extends Controller
         try {
             $request->validate([
                 'bulan' => 'required',
-                'fermentasi_awal' => 'required|numeric|integer',
-                'fermentasi_akhir' => 'required|numeric|integer',
-                'roasting_awal' => 'required|numeric|integer',
-                'roasting_akhir' => 'required|numeric|integer'
+                'fermentasi_awal' => 'required|numeric',
+                'fermentasi_akhir' => 'required|numeric',
+                'roasting_awal' => 'required|numeric',
+                'roasting_akhir' => 'required|numeric'
             ]);
 
             $bulan = date('Y-m-d',strtotime($request->bulan));
