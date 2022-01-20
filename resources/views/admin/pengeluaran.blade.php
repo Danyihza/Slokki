@@ -56,16 +56,16 @@
                         <select id="id_supplier" name="id_supplier" class="ml-5 block w-1/2 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-brown-500 focus:border-brown-500 sm:text-sm">
                             <option value="" disabled selected>Pilih ID Supplier</option>
                             @foreach($supplier as $s)
-                                <option value="{{$s->id_supplier}}">{{$s->id_supplier}}</option>
+                                <option value="{{$s->id_supplier}}">{{$s->id_supplier}} - {{ $s->nama_supplier }}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="flex flex-row mt-6">
                         <h3 class="text-xl w-1/4 text-gray-800 font-medium">ID Bahan Baku</h3>
-                        <select id="id_bahan_baku" name="id_bahan_baku" class="ml-5 block w-1/2 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-brown-500 focus:border-brown-500 sm:text-sm">
+                        <select id="id_bahan_baku" name="id_bahan_baku" onchange="getBahanBaku()" class="ml-5 block w-1/2 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-brown-500 focus:border-brown-500 sm:text-sm">
                             <option value="" disabled selected>Pilih ID Bahan Baku</option>
                             @foreach($bahan_baku as $bb)
-                                <option value="{{$bb->id_bahan_baku}}">{{$bb->id_bahan_baku}}</option>
+                                <option value="{{$bb->id_bahan_baku}}">{{$bb->id_bahan_baku}} - {{ $bb->nama_bahan_baku }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -95,7 +95,7 @@
 
         <div id="content-container" class="mt-16 bg-brown-100 rounded-md p-6 px-16">
             <h3 class="text-gray-800 text-3xl mb-8 font-bold">Input Pengeluaran Lain</h3>
-            <form action="{{ route('admin.addStokBahanBaku') }}" method="POST">
+            <form action="{{ route('admin.addPengeluaran') }}" method="POST">
                 @csrf
                 <div class="col-span-3 sm:col-span-3 mb-4">
                     <div class="flex flex-row mt-6">
@@ -114,7 +114,7 @@
                     </div>
                     <div class="flex flex-row mt-6">
                         <h3 class="text-xl w-1/4 text-gray-800 font-medium">Jenis Pengeluaran</h3>
-                        <select id="id_transaksi" name="id_transaksi" class="ml-5 block w-1/2 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-brown-500 focus:border-brown-500 sm:text-sm">
+                        <select id="jenis_pengeluaran" name="jenis_pengeluaran" class="ml-5 block w-1/2 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-brown-500 focus:border-brown-500 sm:text-sm">
                         <option value="" disabled selected>Pilih Jenis Pengeluaran</option>
                             <option value="Biaya Overhead">Biaya Overhead</option>
                             <option value="Beban Operasional">Beban Operasional</option>
@@ -152,4 +152,18 @@
         </div>
     </div>
 </main>
+@endsection
+
+@section('script')
+<script>
+    async function getBahanBaku(){
+        const id_bahan_baku = document.getElementById('id_bahan_baku').value;
+        const harga_beli = document.getElementById('harga_beli');
+        const response = await fetch(`{{ route('api.getBahanBakuDetail') }}?id=${id_bahan_baku}`)
+        .then(response => response.json())
+        .then(data => data.data)
+        .catch(error => console.log(error));
+        harga_beli.value = response.harga_beli;
+    }
+</script>
 @endsection

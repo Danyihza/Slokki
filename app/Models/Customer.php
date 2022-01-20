@@ -36,4 +36,20 @@ class Customer extends Model
     {
         return $this->hasMany(Transaksi::class, 'id_customer', 'id_customer');
     }
+
+    public static function generateCustomerId()
+    {
+        $lastId = self::orderBy('id_customer', 'desc')->first();
+
+        if ($lastId) {
+            $lastId = $lastId->id_customer;
+            $lastId = substr($lastId, 3);
+            $lastId = (int) $lastId;
+            $lastId++;
+            $lastId = str_pad($lastId, 3, '0', STR_PAD_LEFT);
+            return 'CST' . $lastId;
+        }
+
+        return 'CST001';
+    }
 }

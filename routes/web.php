@@ -53,6 +53,7 @@ Route::group(['middleware' => 'authorization', 'prefix' => 'order', 'as' => 'ord
     Route::get('/', [OrderController::class, 'orderDetailView'])->name('orderDetailView');
     Route::post('/addOrder', [OrderController::class, 'addOrder'])->name('addOrder');
     Route::post('/uploadBuktiPembayaran', [OrderController::class, 'uploadBuktiPembayaran'])->name('uploadBuktiPembayaran');
+    Route::get('/confirmingOrder', [OrderController::class, 'confirmingOrder'])->name('confirmingOrder');
 });
 
 Route::group(['middleware' => 'authorization', 'as' => 'cart.'], function () {
@@ -77,4 +78,5 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'authorizat
     Route::get('/laporanKeuangan', [LKeuanganController::class, 'laporanKeuanganView'])->name('laporanKeuanganView');
     Route::get('/pengeluaran', [PengeluaranController::class, 'pengeluaranView'])->name('pengeluaranView');
     Route::post('pengeluaran/addPenyuplaian', [PengeluaranController::class, 'addPenyuplaian'])->name('addPenyuplaian');
+    Route::post('pengeluaran/addPengeluaran', [PengeluaranController::class, 'addPengeluaran'])->name('addPengeluaran');
 });

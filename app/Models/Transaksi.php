@@ -45,11 +45,11 @@ class Transaksi extends Model
             $lastId = substr($lastId, 3);
             $lastId = (int) $lastId;
             $lastId++;
-            $lastId = str_pad($lastId, 7, '0', STR_PAD_LEFT);
-            return 'TRX' . $lastId;
+            $lastId = str_pad($lastId, 3, '0', STR_PAD_LEFT);
+            return 'TSK' . $lastId;
         }
 
-        return 'TRX0000001';
+        return 'TSK001';
     }
 
     public function customer()

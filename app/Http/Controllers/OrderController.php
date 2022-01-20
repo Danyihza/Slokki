@@ -72,4 +72,17 @@ class OrderController extends Controller
 
         return redirect()->back()->with('success', 'Bukti pembayaran berhasil diupload');
     }
+
+    public function confirmingOrder(Request $request)
+    {
+        $id_transaksi = $request->id_transaksi;
+        $transaksi = Transaksi::where('id_transaksi', $id_transaksi)->first();
+        $status = $transaksi->status;
+        $status['diterima'] = 1;
+        $status['status'] = '100%';
+        $transaksi->status = $status;
+        $transaksi->save();
+
+        return redirect()->back()->with('success', 'Pesanan dikonfirmasi dan diterima');
+    }
 }

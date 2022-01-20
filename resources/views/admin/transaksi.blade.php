@@ -41,7 +41,24 @@
         x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
         x-transition:leave-end="opacity-0  transform translate-y-4 sm:translate-y-0 sm:scale-95"
         @click.away="paymentModal = !paymentModal" @keydown.escape="paymentModal = !paymentModal"
-        class="w-fit overflow-hidden rounded-t-lg sm:rounded-lg sm:m-4 sm:max-w-xl" role="dialog" id="modal">
+        class="w-fit overflow-hidden rounded-t-lg sm:rounded-lg sm:m-4 sm:max-w-xl" role="dialog" id="paymentModal">
+    </div>
+</div>
+
+<!-- Modal Backdrop -->
+<div x-show="resiModal" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0"
+    x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200"
+    x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+    class="fixed inset-0 z-30 flex items-end bg-black bg-opacity-80 sm:items-center sm:justify-center">
+    <!-- Modal -->
+    <div x-show="resiModal" x-transition:enter="transition ease-out duration-150"
+        x-transition:enter-start="opacity-0 transform translate-y-4 sm:translate-y-0 sm:scale-95"
+        x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+        x-transition:leave-end="opacity-0  transform translate-y-4 sm:translate-y-0 sm:scale-95"
+        @click.away="resiModal = !resiModal" @keydown.escape="resiModal = !resiModal"
+        class="w-fit overflow-hidden rounded-t-lg sm:rounded-lg sm:m-4 sm:max-w-xl" role="dialog" id="resiModal">
     </div>
 </div>
 
@@ -183,7 +200,7 @@
                 <div class="flex flex-row justify-between mt-6">
                     <h3 class="text-xl w-1/4 text-gray-800 font-medium">Total Harga</h3>
                     <input type="text"
-                        value="Rp ${data.ongkir == null ? numberWithDots(data.total_amount) + ' (Belum termasuk ongkir)' : numberWithDots(data.total_amount) + ' (Sudah termasuk ongkir)'}"
+                        value="Rp ${data.ongkir == null ? numberWithDots(data.total_amount) + ' (Belum termasuk ongkir)' : numberWithDots(data.total_amount+data.ongkir) + ' (Sudah termasuk ongkir)'}"
                         name="total_amount" id="total_amount" disabled
                         class="ml-10 w-3/4 disabled:bg-gray-100 disabled:text-gray-600 focus:ring-brown-500 focus:border-brown-500 block shadow-sm sm:text-sm border-gray-300 rounded-md">
                 </div>
@@ -195,7 +212,7 @@
                         </span>
                         <input class="hidden" id="upload" name="resi_file" accept=".png, .jpg, .jpeg" type="file" oninput="previewImage()">
                     </label>
-                    <button class="${data.bukti_resi ? '' : 'hidden'} ml-4 flex w-fit items-center justify-center mt-4 px-3 py-2 hover:opacity-90 disabled:bg-gray-400 bg-[#301C11] text-white text-sm font-medium rounded focus:outline-none focus:bg-[#301C11]">
+                    <button type="button" @click="resiModal = !resiModal" class="${data.bukti_resi ? '' : 'hidden'} ml-4 flex w-fit items-center justify-center mt-4 px-3 py-2 hover:opacity-90 disabled:bg-gray-400 bg-[#301C11] text-white text-sm font-medium rounded focus:outline-none focus:bg-[#301C11]">
                         Lihat Resi
                     </button>
                 </div>
@@ -231,9 +248,14 @@
             </div>
         `;
         const container = document.getElementById('content-container');
-        const modal = document.getElementById('modal');
-        modal.innerHTML = `
+        const paymentModal = document.getElementById('paymentModal');
+        const resiModal = document.getElementById('resiModal');
+        paymentModal.innerHTML = `
         <img src="{{ asset('assets/payments') }}/${data.detail_transaksi[0].transaksi.bukti_pembayaran}" alt="">
+        `;
+
+        resiModal.innerHTML = `
+        <img src="{{ asset('assets/resi') }}/${data.bukti_resi}" alt="">
         `;
         container.innerHTML = html;
         return;
@@ -258,11 +280,5 @@
             previewContainer.src = URL.createObjectURL(file)
         }
     }
-    // imgInp.onchange = evt => {
-    //     const [file] = imgInp.files
-    //     if (file) {
-    //         blah.src = URL.createObjectURL(file)
-    //     }
-    // }
 </script>
 @endsection

@@ -77,7 +77,7 @@ class AuthController extends Controller
             $password = $request->password;
 
             $customer = new Customer;
-            $customer->id_customer = Uuid::uuid4();
+            $customer->id_customer = Customer::generateCustomerId();
             $customer->email = $email;
             $customer->nama_customer = $nama_lengkap;
             $customer->no_telp = $no_telp;

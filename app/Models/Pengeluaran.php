@@ -28,4 +28,20 @@ class Pengeluaran extends Model
     {
         return $this->belongsTo(Owner::class, 'id_owner', 'id_owner');
     }
+
+    public static function generatePengeluaranId()
+    {
+        $lastId = self::orderBy('id_pengeluaran', 'desc')->first();
+
+        if ($lastId) {
+            $lastId = $lastId->id_pengeluaran;
+            $lastId = substr($lastId, 3);
+            $lastId = (int) $lastId;
+            $lastId++;
+            $lastId = str_pad($lastId, 3, '0', STR_PAD_LEFT);
+            return 'PGL' . $lastId;
+        }
+
+        return 'PGL001';
+    }
 }

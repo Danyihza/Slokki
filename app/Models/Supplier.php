@@ -23,4 +23,20 @@ class Supplier extends Model
         'nama_supplier',
         'alamat_supplier'
     ];
+
+    public static function generateSupplierId()
+    {
+        $lastId = self::orderBy('id_supplier', 'desc')->first();
+
+        if ($lastId) {
+            $lastId = $lastId->id_supplier;
+            $lastId = substr($lastId, 3);
+            $lastId = (int) $lastId;
+            $lastId++;
+            $lastId = str_pad($lastId, 3, '0', STR_PAD_LEFT);
+            return 'SPL' . $lastId;
+        }
+
+        return 'SPL001';
+    }
 }

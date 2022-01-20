@@ -28,4 +28,8 @@ Route::group(['as' => 'api.'], function(){
     Route::get('/checkUsername', [ApiController::class, 'checkUsername'])->name('checkUsername');
     Route::get('/addToCart', [CartController::class, 'addToCart'])->name('addToCart');
     Route::get('/getTransaction', [ApiController::class, 'getTransaction'])->name('getTransaction');
+    Route::get('/getBahanBakuDetail', [ApiController::class, 'getBahanBakuDetail'])->name('getBahanBakuDetail');
+    Route::get('/getAllDetailTransaksi', [ApiController::class, 'getAllDetailTransaksi'])->name('getAllDetailTransaksi');
+    Route::get('/getRekapPenyuplaian', [ApiController::class, 'getRekapPenyuplaian'])->name('getRekapPenyuplaian');
+    Route::get('/getRekapPengeluaran', [ApiController::class, 'getRekapPengeluaran'])->name('getRekapPengeluaran');
 });

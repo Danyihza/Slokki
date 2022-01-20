@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\BahanBaku;
 use App\Models\DetailPenyuplaian;
+use App\Models\Pengeluaran;
 use App\Models\Penyuplaian;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
@@ -24,7 +25,7 @@ class PengeluaranController extends Controller
     public function addPenyuplaian(Request $request)
     {
         try {
-            
+
             $request->validate([
                 'tanggal' => 'required',
                 'id_supplier' => 'required',
@@ -32,7 +33,7 @@ class PengeluaranController extends Controller
                 'harga_beli' => 'required|numeric',
                 'kuantitas' => 'required|numeric'
             ]);
-            
+
             $id_penyuplaian = Uuid::uuid4();
             $id_dtpenyuplaian = Uuid::uuid4();
             $tanggal = $request->tanggal;
@@ -60,5 +61,34 @@ class PengeluaranController extends Controller
         } catch (\Throwable $th) {
             return redirect()->route('admin.pengeluaranView')->with('error', $th->getMessage());
         }
+    }
+
+    public function addPengeluaran(Request $request)
+    {
+        // try {
+            $request->validate([
+                'tanggal' => 'required',
+                'nama_pengeluaran' => 'required',
+                'jenis_pengeluaran' => 'required',
+                'harga' => 'required',
+                'satuan' => 'required',
+                'jumlah_pengeluaran' => 'required'
+            ]);
+
+            $newPengeluaran = new Pengeluaran;
+            $newPengeluaran->id_pengeluaran = Pengeluaran::generatePengeluaranId();
+            $newPengeluaran->id_owner = session('owner')->id_owner;
+            $newPengeluaran->tanggal_pengeluaran = $request->tanggal;
+            $newPengeluaran->nama_pengeluaran = $request->nama_pengeluaran;
+            $newPengeluaran->jenis_pengeluaran = $request->jenis_pengeluaran;
+            $newPengeluaran->harga = $request->harga;
+            $newPengeluaran->satuan = $request->satuan;
+            $newPengeluaran->jumlah_pengeluaran = $request->jumlah_pengeluaran;
+            $newPengeluaran->save();
+
+            return redirect()->back()->with('success', 'Berhasil tambah data pengeluaran');
+        // } catch (\Throwable $th) {
+        //     return redirect()->back()->with('error', $th->getMessage());
+        // }
     }
 }

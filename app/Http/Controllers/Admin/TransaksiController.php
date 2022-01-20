@@ -26,7 +26,7 @@ class TransaksiController extends Controller
 
         $id_transaksi = $request->id_transaksi;
         $ongkir = $request->ongkir;
-        $no_resi = $request->no_resi;
+        $no_resi = $request->resi;
         if ($request->file('resi_file')) {
             $resi_file = $request->file('resi_file');
         }
@@ -42,7 +42,6 @@ class TransaksiController extends Controller
         if ($request->file('resi_file')) {
             $transaction->bukti_resi = $resi_file->getClientOriginalName();
         }
-        $transaction->total_amount += $ongkir;
         $transaction->status = [
             'diproses' => $diproses,
             'dikemas' => $dikemas,
@@ -53,7 +52,7 @@ class TransaksiController extends Controller
         $transaction->save();
 
         if ($request->file('resi_file')) {
-            $resi_file->move('./assets/payments/', $resi_file->getClientOriginalName());
+            $resi_file->move('./assets/resi/', $resi_file->getClientOriginalName());
         }
 
         return redirect()->route('admin.transactionView')->with([

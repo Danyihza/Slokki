@@ -33,16 +33,17 @@ class Produk extends Model
 
     public static function generateIdProduk()
     {
-        $lastId = Produk::orderBy('id_produk', 'desc')->first();
-        if ($lastId == null) {
-            return 'PRD0000001';
-        } else {
+        $lastId = self::orderBy('id_produk', 'desc')->first();
+
+        if ($lastId) {
             $lastId = $lastId->id_produk;
             $lastId = substr($lastId, 3);
             $lastId = (int) $lastId;
             $lastId++;
-            $lastId = str_pad($lastId, 7, '0', STR_PAD_LEFT);
-            return 'PRD' . $lastId;
+            $lastId = str_pad($lastId, 3, '0', STR_PAD_LEFT);
+            return 'PDK' . $lastId;
         }
+
+        return 'PDK001';
     }
 }

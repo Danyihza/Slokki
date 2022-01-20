@@ -103,6 +103,7 @@ class StokController extends Controller
                 $rules['awal_'.$produk->id_produk] = 'required';
                 $rules['akhir_'.$produk->id_produk] = 'required';
             }
+
             $request->validate($rules);
 
             $bulan = date('Y-m-d',strtotime($request->bulan));
@@ -124,6 +125,7 @@ class StokController extends Controller
                 $stokProduk->stok_akhir = $stokakhir;
                 $stokProduk->save();
             }
+            
             return redirect()->route('admin.stokView')->with('success', 'Berhasil tambah data stok produk jadi');
         } catch (\Throwable $th) {
             return redirect()->route('admin.stokView')->with('error', $th->getMessage());

@@ -30,7 +30,7 @@
 
 
 <body class="bg-gray-300">
-    <div x-cloak x-data="{ cartOpen: {{ session('showCart') ? 'true' : 'false' }}, isOpen: {{ session('showCart') ? 'true' : 'false' }}, paymentModal: false }">
+    <div x-cloak x-data="{ cartOpen: {{ session('showCart') ? 'true' : 'false' }}, isOpen: {{ session('showCart') ? 'true' : 'false' }}, paymentModal: false, resiModal: false }">
 
         @include('_layouts.header')
 
