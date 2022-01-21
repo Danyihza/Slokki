@@ -53,6 +53,9 @@
                         @case('MANDIRI')
                         <option value="mandiri">MANDIRI 1560009861549</option>
                         @break
+                        @case('COD')
+                        <option value="cod">COD (Cash On Delivery)</option>
+                        @break
                         @default
                         <option value="">NOT FOUND</option>
                         @endswitch

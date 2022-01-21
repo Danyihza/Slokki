@@ -167,6 +167,11 @@
                 <option value="mandiri">MANDIRI 1560009861549</option>
                 `;
                 break;
+            case 'COD':
+            html += `
+                <option value="cod">COD (Cash On Delivery)</option>
+                `;
+                break;
         
             default:
             html += `

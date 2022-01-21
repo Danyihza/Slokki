@@ -53,6 +53,7 @@ $confirmProduct = session('confirm_product');
                             <option value="bri">BRI 005101193175518</option>
                             <option value="bca">BCA 8161200032</option>
                             <option value="mandiri">MANDIRI 1560009861549</option>
+                            <option value="cod">COD (Cash On Delivery)</option>
                         </select>
                     </div>
                     <div class="flex flex-row justify-between mt-6">

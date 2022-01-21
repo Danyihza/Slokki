@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\ApiController;
 use App\Http\Controllers\Api\CartController;
+use App\Http\Controllers\Api\LaporanKeuanganController;
 use App\Http\Controllers\Api\Region;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -32,4 +33,10 @@ Route::group(['as' => 'api.'], function(){
     Route::get('/getAllDetailTransaksi', [ApiController::class, 'getAllDetailTransaksi'])->name('getAllDetailTransaksi');
     Route::get('/getRekapPenyuplaian', [ApiController::class, 'getRekapPenyuplaian'])->name('getRekapPenyuplaian');
     Route::get('/getRekapPengeluaran', [ApiController::class, 'getRekapPengeluaran'])->name('getRekapPengeluaran');
+
+    Route::group(['prefix' => 'laporan', 'as' => 'laporan.'], function(){
+        Route::get('/getHargaPokokProduksi', [LaporanKeuanganController::class, 'getHargaPokokProduksi'])->name('getHargaPokokProduksi');
+        Route::get('/getHargaPokokPenjualan', [LaporanKeuanganController::class, 'getHargaPokokPenjualan'])->name('getHargaPokokPenjualan');
+        Route::get('/getLabaRugi', [LaporanKeuanganController::class, 'getLabaRugi'])->name('getLabaRugi');
+    });
 });

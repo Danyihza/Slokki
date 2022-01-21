@@ -11,8 +11,9 @@
                 <nav :class="isOpen ? 'hidden' : 'hidden'" class="sm:flex sm:justify-center sm:items-center mt-1">
                     <div class="flex flex-col sm:flex-row">
                         <a class="mt-3 {{ $state == 'Home' ? 'underline text-gray-200' : 'text-gray-400' }} hover:underline sm:mx-3 sm:mt-0" href="{{ route('admin.homeView') }}">Home</a>
-                        <a class="mt-3 {{ $state == 'Catalogue' ? 'underline text-gray-200' : 'text-gray-400' }} hover:underline sm:mx-3 sm:mt-0" href="{{ route('admin.transactionView') }}?id_transaksi=TRX0000001">Transaksi</a>
+                        <a class="mt-3 {{ $state == 'Catalogue' ? 'underline text-gray-200' : 'text-gray-400' }} hover:underline sm:mx-3 sm:mt-0" href="{{ route('admin.transactionView') }}">Transaksi</a>
                         <a class="mt-3 {{ $state == 'pengeluaran' ? 'underline text-gray-200' : 'text-gray-400' }} hover:underline sm:mx-3 sm:mt-0" href="{{ route('admin.pengeluaranView') }}">Pengeluaran</a>
+                        <a class="mt-3 {{ $state == 'pendapatan' ? 'underline text-gray-200' : 'text-gray-400' }} hover:underline sm:mx-3 sm:mt-0" href="{{ route('admin.pendapatanView') }}">Pendapatan</a>
                         <a class="mt-3 {{ $state == 'stok' ? 'underline text-gray-200' : 'text-gray-400' }} hover:underline sm:mx-3 sm:mt-0" href="{{ route('admin.stokView') }}">Stok</a>
                         <a class="mt-3 {{ $state == 'report' ? 'underline text-gray-200' : 'text-gray-400' }} hover:underline sm:mx-3 sm:mt-0" href="{{ route('admin.reportView') }}">Report</a>
                         <a class="mt-3 {{ $state == 'laporan_keuangan' ? 'underline text-gray-200' : 'text-gray-400' }} hover:underline sm:mx-3 sm:mt-0" href="{{ route('admin.laporanKeuanganView') }}">Laporan Keuangan</a>

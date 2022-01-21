@@ -91,7 +91,7 @@ class ProdukSeeder extends Seeder
             'nama_produk' => 'Robusta Wine',
             'kuantitas' => '100 gram',
             'jenis_produk' => 'Kopi Bubuk',
-            'harga_jual' => 25000,
+            'harga_jual' => 35000,
             'gambar' => '9.jpg'
         ]);
 

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\LKeuanganController;
+use App\Http\Controllers\Admin\PendapatanController;
 use App\Http\Controllers\Admin\PengeluaranController;
 use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\Admin\StokController;
@@ -79,4 +80,6 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => 'authorizat
     Route::get('/pengeluaran', [PengeluaranController::class, 'pengeluaranView'])->name('pengeluaranView');
     Route::post('pengeluaran/addPenyuplaian', [PengeluaranController::class, 'addPenyuplaian'])->name('addPenyuplaian');
     Route::post('pengeluaran/addPengeluaran', [PengeluaranController::class, 'addPengeluaran'])->name('addPengeluaran');
+    Route::get('/pendapatan', [PendapatanController::class, 'pendapatanView'])->name('pendapatanView');
+    Route::post('/pendapatan/addPendapatan', [PendapatanController::class, 'addPendapatan'])->name('addPendapatan');
 });
