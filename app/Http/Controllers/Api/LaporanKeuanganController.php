@@ -33,7 +33,7 @@ class LaporanKeuanganController extends Controller
             $data['bahan_penolong'] = 0;
             $data['bop_d'] = (int) Pengeluaran::whereMonth('tanggal_pengeluaran', $date[1])->whereYear('tanggal_pengeluaran', $date[0])->where('jenis_pengeluaran', 'Biaya Overhead')->sum(DB::raw('harga * jumlah_pengeluaran')) + 223333;
             $data['jumlah_biaya_overhead'] = (int) $data['bahan_penolong'] + $data['bop_d'];
-            $data['jumlah_biaya_produksi'] = (int) $data['pemakaian_bahan_baku'] + $data['biaya_tenaga_kerja_langsung'] + $data['biaya_tenaga_kerja_langsung'];
+            $data['jumlah_biaya_produksi'] = (int) $data['pemakaian_bahan_baku'] + $data['biaya_tenaga_kerja_langsung'] + $data['bop_d'];
             $stokbarangproses = StokBarangProses::whereMonth('bulan', $date[1])->whereYear('bulan', $date[0])->first();
             $x = $stokbarangproses->fermentasi_awal;
             $y = $stokbarangproses->roasting_awal;

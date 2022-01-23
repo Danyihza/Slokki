@@ -407,7 +407,7 @@
                         ${data.jumlah_pengeluaran}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
-                        ${data.harga * data.jumlah_pengeluaran}
+                        ${Math.ceil(data.harga * data.jumlah_pengeluaran)}
                     </td>
                 </tr>
                 `;

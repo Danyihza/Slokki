@@ -325,7 +325,7 @@
         .then(data => data)
         .catch(error => console.error(error));
 
-        if (response.code == 500) {
+        if (response.code == 404) {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
@@ -597,7 +597,7 @@
         data.beban_operasional.forEach(beban => {
             html += `
             <div class="flex flex-row justify-between mt-3">
-                <h3 class="text-xl w-1/2 text-gray-800 font-normal pl-16">${beban.nama_pengeluaran}@${numberWithDots(beban.harga)} (${beban.satuan})</h3>
+                <h3 class="text-xl w-1/2 text-gray-800 font-normal pl-16">${beban.nama_pengeluaran} @${numberWithDots(beban.harga)} (${beban.satuan})</h3>
                 <div class="ml-5 flex flex-col w-1/2">
                     <h3 class="text-xl w-3/4 text-gray-800 font-normal text-right">${numberWithDots(beban.harga * beban.jumlah_pengeluaran)}</h3>
                 </div>
