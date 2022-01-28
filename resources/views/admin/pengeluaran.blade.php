@@ -62,7 +62,7 @@
                     </div>
                     <div class="flex flex-row mt-6">
                         <h3 class="text-xl w-1/4 text-gray-800 font-medium">ID Bahan Baku</h3>
-                        <select id="id_bahan_baku" name="id_bahan_baku" onchange="getBahanBaku()" class="ml-5 block w-1/2 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-brown-500 focus:border-brown-500 sm:text-sm">
+                        <select id="id_bahan_baku" name="id_bahan_baku" class="ml-5 block w-1/2 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-brown-500 focus:border-brown-500 sm:text-sm">
                             <option value="" disabled selected>Pilih ID Bahan Baku</option>
                             @foreach($bahan_baku as $bb)
                                 <option value="{{$bb->id_bahan_baku}}">{{$bb->id_bahan_baku}} - {{ $bb->nama_bahan_baku }}</option>
